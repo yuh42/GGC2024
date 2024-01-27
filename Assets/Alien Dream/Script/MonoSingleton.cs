@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
-using UnityEngine;
+
 public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
     public bool Global = true;

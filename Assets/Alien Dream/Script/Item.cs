@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    bool bDragged = false;// Start is called before the first frame update
     public int ItemID;
 
     public Sprite Icon;
