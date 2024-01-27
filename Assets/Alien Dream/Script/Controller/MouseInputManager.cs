@@ -2,50 +2,76 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MouseInputManager : MonoSingleton<MouseInputManager>
 {
-    public event Action OnLeftButtonDown, OnRightButtonDown;
-    public event Action OnLeftButtonUp, OnRightButtonUp;
+    public event Action<Item> OnLeftButtonDown;
+    public event Action<Item> OnLeftButtonUp;
 
-    Vector2 mousePos;
+    public Vector2 WorldMousePos;
+    public Vector2 ScreenMousePos;
 
-    private bool bCanAct=false;
-    private Animator m_animator;
-    public Transform MousePos;
+    public bool bCanAct = false;
+
+    public int ChooseItem = 0;
+    public MouseUI MouseUI;
+
+    // public Transform MousePos;
+    public RaycastHit2D hit;
     // Start is called before the first frame update
     void Start()
     {
-        m_animator=GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        SetType();
-        Broadcast();
-
+        ScreenMousePos = Input.mousePosition;
+        WorldMousePos = Camera.main.ScreenToWorldPoint(ScreenMousePos);
+        hit = Physics2D.Raycast(WorldMousePos, Vector2.zero);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            SetType();
+            OnClick();
+        }
+        MouseUI.SetIcon(ChooseItem);
+        MouseUI.UpdatePos(ScreenMousePos);
     }
 
     void SetType()
     {
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-        if(hit.collider.tag == "Button" ){
+        if (hit.collider != null && hit.collider.tag == "Item")
+        {
             bCanAct = true;
-            // Cursor.SetCursor()
-        }else{
+            MouseUI.SetAct(ChooseItem != 0);
+        }
+        else
+        {
             bCanAct = false;
-            m_animator.SetInteger("ActID",0);
+            MouseUI.SetNotAct(ChooseItem != 0);
         }
     }
 
 
+    void OnClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
 
-    void Broadcast(){
-        if (Input.GetMouseButtonDown(0)) { OnLeftButtonDown?.Invoke(); }
-        if (Input.GetMouseButtonDown(1)) { OnRightButtonDown?.Invoke(); }
-        if (Input.GetMouseButtonUp(0)) {  OnLeftButtonUp?.Invoke(); }
-        if(Input.GetMouseButtonUp(1)) { OnRightButtonUp?.Invoke(); }
+            OnLeftButtonDown?.Invoke(hit.collider == null ? null : hit.transform.GetComponent<Item>());
+
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnLeftButtonUp?.Invoke(hit.collider == null ? null : hit.transform.GetComponent<Item>());
+            MouseInputManager.Instance.ChooseItem = 0;
+        }
+
     }
+
 }
+
