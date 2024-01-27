@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1,
+        "name": "妈妈",
+        "type": 0,
+        "actnum": 1,
+        "input": 0,
+        "output": 4
+    },
+    {
+        "id": 2,
+        "name": "吸尘器",
+        "type": 1,
+        "actnum": 1,
+        "input": 10,
+        "output": 11
+    },
+    {
+        "id": 3,
+        "name": "树枝",
+        "type": 1,
+        "actnum": 1,
+        "input": 11,
+        "output": 12
+    },
+    {
+        "id": 4,
+        "name": "火焰",
+        "type": 1,
+        "actnum": 1,
+        "input": 8,
+        "output": 9
+    },
+    {
+        "id": 5,
+        "name": "钟表",
+        "type": 0,
+        "actnum": 0,
+        "input": 0,
+        "output": 23
+    },
+    {
+        "id": 6,
+        "name": "咖啡杯（水）",
+        "type": 2,
+        "actnum": 1,
+        "input": 18,
+        "output": 7
+    },
+    {
+        "id": 7,
+        "name": "咖啡杯（咖啡）",
+        "type": 2,
+        "actnum": 1,
+        "input": 0,
+        "output": 24
+    },
+    {
+        "id": 8,
+        "name": "篝火（灭）",
+        "type": 2,
+        "actnum": 1,
+        "input": 4,
+        "output": 9
+    },
+    {
+        "id": 9,
+        "name": "篝火（亮）",
+        "type": 2,
+        "actnum": 1,
+        "input": 12,
+        "output": 13
+    },
+    {
+        "id": 10,
+        "name": "双鱼座",
+        "type": 2,
+        "actnum": 1,
+        "input": 2,
+        "output": 11
+    },
+    {
+        "id": 11,
+        "name": "鱼",
+        "type": 1,
+        "actnum": 1,
+        "input": 3,
+        "output": 12
+    },
+    {
+        "id": 12,
+        "name": "鱼串（生）",
+        "type": 1,
+        "actnum": 1,
+        "input": 9,
+        "output": 13
+    },
+    {
+        "id": 13,
+        "name": "鱼串（熟）",
+        "type": 1,
+        "actnum": 1,
+        "input": 14,
+        "output": 18
+    },
+    {
+        "id": 14,
+        "name": "猫",
+        "type": 2,
+        "actnum": 1,
+        "input": 13,
+        "output": 18
+    },
+    {
+        "id": 15,
+        "name": "红狼眼睛",
+        "type": 0,
+        "actnum": 0,
+        "input": 0,
+        "output": 16
+    },
+    {
+        "id": 16,
+        "name": "狼",
+        "type": 0,
+        "actnum": 0,
+        "input": 0,
+        "output": 17
+    },
+    {
+        "id": 17,
+        "name": "毛线",
+        "type": 1,
+        "actnum": 1,
+        "input": 27,
+        "output": 19
+    },
+    {
+        "id": 18,
+        "name": "猫屎咖啡豆",
+        "type": 1,
+        "actnum": 1,
+        "input": 6,
+        "output": 7
+    },
+    {
+        "id": 19,
+        "name": "针线",
+        "type": 1,
+        "actnum": 1,
+        "input": 20,
+        "output": 19
+    },
+    {
+        "id": 20,
+        "name": "黑洞",
+        "type": 2,
+        "actnum": 1,
+        "input": 19,
+        "output": 0
+    },
+    {
+        "id": 21,
+        "name": "操作台",
+        "type": 0,
+        "actnum": 3,
+        "input": "22,23,24",
+        "output": 0
+    },
+    {
+        "id": 22,
+        "name": "钥匙1",
+        "type": 2,
+        "actnum": 0,
+        "input": 21,
+        "output": 0
+    },
+    {
+        "id": 23,
+        "name": "钥匙2",
+        "type": 2,
+        "actnum": 0,
+        "input": 21,
+        "output": 0
+    },
+    {
+        "id": 24,
+        "name": "钥匙3",
+        "type": 2,
+        "actnum": 0,
+        "input": 21,
+        "output": 0
+    },
+    {
+        "id": 25,
+        "name": "铁棒",
+        "type": 1,
+        "actnum": 1,
+        "input": 26,
+        "output": 27
+    },
+    {
+        "id": 26,
+        "name": "石头",
+        "type": 2,
+        "actnum": 1,
+        "input": 25,
+        "output": 27
+    },
+    {
+        "id": 27,
+        "name": "铁针",
+        "type": 1,
+        "actnum": 1,
+        "input": 17,
+        "output": 19
+    },
+    {
+        "id": 28,
+        "name": "时钟人（衣服）",
+        "type": 2,
+        "actnum": 1,
+        "input": 19,
+        "output": 0
+    }
+]
