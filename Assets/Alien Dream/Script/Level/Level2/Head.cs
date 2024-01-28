@@ -10,6 +10,8 @@ public class Head : Item
     public int Answer;
     public override void OnClick()
     {
+	var inst = MonoSingleton<SFX>.Instance; inst.PlaySound(inst.AudioRes.effects[8]);
+
         index = index == 7 ? 0 : index + 1;
         GetComponent<SpriteRenderer>().sprite = pointers[index];
         if(index == Answer ){

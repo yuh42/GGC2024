@@ -19,6 +19,7 @@ public class Wolf : MonoBehaviour
     void Change()
     {
         GetComponent<Animator>().Play("Nude");
+	var inst = MonoSingleton<SFX>.Instance; inst.PlaySound(inst.AudioRes.effects[1]);
         transform.GetChild(0).gameObject.SetActive(true);
     }
 }

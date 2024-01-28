@@ -31,11 +31,12 @@ public class BackpackManager : MonoSingleton<BackpackManager>
 
     public void Use(int index)
     {
+	var inst = MonoSingleton<SFX>.Instance; inst.PlaySound(inst.AudioRes.effects[11]);
         if (storeItems[index] == 0)
         {
             return;
         }
-        
+
         int id_1 = MouseInputManager.Instance.ChooseItem, id_2 = storeItems[index];
         
         if(id_1 != 0 && ItemsDatabase.Instance.Items[id_2].type != 0 )

@@ -6,8 +6,10 @@ public class SFX : MonoSingleton<SFX>
     AudioSource bgm;
     Coroutine switch_bgm_coro = null;
 
+    public AudioRes AudioRes;
+
     public void PlaySound(AudioClip clip, float volume = 1.0f){
-        AudioSource.PlayClipAtPoint(clip, Vector3.zero, volume);
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, volume);
     }
 
     void Awake(){
@@ -49,7 +51,7 @@ public class SFX : MonoSingleton<SFX>
         // 淡入新的BGM
         bgm.clip = clip;
         if(clip != null) bgm.Play();
-        
+       
         start_time = Time.time;
         initial_vol = bgm.volume;
         progress = 0;
