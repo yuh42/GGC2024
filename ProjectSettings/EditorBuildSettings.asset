@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Alien Dream/Scenes/StartMenu.unity
     guid: 45aac9cdb581371448d7422620a6cfc4
   - enabled: 1
-    path: Assets/Alien Dream/Scenes/ChoseLevel.unity
-    guid: 7fa9418a395acdd4c9e35d146e915976
+    path: Assets/Alien Dream/Scenes/Comic.unity
+    guid: 406ff8336c97f40f89eddde633104283
+  - enabled: 1
+    path: Assets/Alien Dream/Scenes/Level.unity
+    guid: 53255ee469f57124f81a470ef38c4163
   m_configObjects: {}

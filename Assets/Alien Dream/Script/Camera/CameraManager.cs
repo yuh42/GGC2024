@@ -8,15 +8,24 @@ public class CameraManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public float RotateSpeed;
-    public float MaxUpAngle;
-    public float MaxDownAngle;
+    public float MaxUp;
+    public float MaxDown;
+    public float MaxRight;
+    public float MaxLeft;
+    
 
-    private float lookAngle;
-    private float tiltAngle;
+    public Transform FarPanel;
+    public Transform MidPanel;
+    public Transform ClosePanel;
 
-    public float LerpSpeed;
-    float R_H;
-    float R_V;
+    // private float lookAngle;
+    // private float tiltAngle;
+
+
+    public float FarRate;
+    public float MidRate;
+
+    public float CloseRate;
 
     void Start()
     {
@@ -26,24 +35,20 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // R_H = Input.GetAxis("Horizontal") * RotateSpeed;
-        // R_V = Input.GetAxis("Vertical") * RotateSpeed;
 
+        float mx = -(MouseInputManager.Instance.ScreenMousePos.x - Screen.width / 2) / Screen.width * RotateSpeed;
+        float my = -(MouseInputManager.Instance.ScreenMousePos.y - Screen.height / 2) / Screen.height * RotateSpeed;
 
+        mx = Mathf.Clamp(mx, MaxLeft, MaxRight);
+        my = Mathf.Clamp(my, MaxDown, MaxUp);
 
-        // lookAngle += R_H;
-        // tiltAngle += R_V;
+        FarPanel.position = new Vector3(mx * FarRate, my * FarRate, 0);
+        MidPanel.position = new Vector3(mx * MidRate, my * MidRate, 0);
+        ClosePanel.position = new Vector3(mx * CloseRate, my * CloseRate, 0);
 
+        // Debug.Log(mx + " " + my);
 
-        float mx = (MouseInputManager.Instance.ScreenMousePos.x - Screen.width / 2) / Screen.width * RotateSpeed;
-        float my = (MouseInputManager.Instance.ScreenMousePos.y - Screen.height / 2) / Screen.height * RotateSpeed;
-
-        mx =  Mathf.Clamp(mx, MaxDownAngle, MaxUpAngle);
-        my =  Mathf.Clamp(my, MaxDownAngle, MaxUpAngle);
-
-        Debug.Log(mx + " " + my);
-
-        transform.rotation = Quaternion.Euler(-my, mx, 0);
+        // transform.rotation = Quaternion.Euler(-my, mx, 0);
 
         // Quaternion qx = Quaternion.Euler(0, mx, 0);
         // Quaternion qy = Quaternion.Euler(my, 0, 0);

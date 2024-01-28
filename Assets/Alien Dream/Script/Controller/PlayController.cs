@@ -8,6 +8,7 @@ public class PlayController : MonoBehaviour
     // Start is called before the first frame update
     ItemsDatabase ItemData;
     Item clickedItem;
+    public GameObject NewItem;
     void Start()
     {
         MouseInputManager.Instance.OnLeftButtonDown += OnClickDown;
@@ -17,7 +18,7 @@ public class PlayController : MonoBehaviour
 
     void Action(Item item)
     {
-        if (item == null || item != clickedItem )
+        if (item == null || item != clickedItem)
         {
             return;
         }
@@ -35,7 +36,7 @@ public class PlayController : MonoBehaviour
         {
             HandleCombin(item);
         }
-        
+
     }
 
     void OnClickDown(Item item)
@@ -45,29 +46,34 @@ public class PlayController : MonoBehaviour
 
     void HandleCombin(Item item)
     {
-        if (MouseInputManager.Instance.ChooseItem == 0)
-        {
-            return;
-        }
 
-        if (ItemData.Items[item.ItemID].input.Contains(MouseInputManager.Instance.ChooseItem))
+        if (MouseInputManager.Instance.ChooseItem != 0 && ItemData.Items[item.ItemID].input.Contains(MouseInputManager.Instance.ChooseItem))
         {
-            
+
 
             BackpackManager.Instance.Drop();
             foreach (var output in ItemData.Items[item.ItemID].output)
             {
-                BackpackManager.Instance.Add(output);
+                if (ItemData.Items[output].type == 1)
+                {
+                    BackpackManager.Instance.Add(output);
+                }
+                else
+                {
+                    Instantiate(NewItem, item.transform.position, item.transform.rotation);
+                    NewItem.GetComponent<Item>().ItemID = output;
+                    NewItem.GetComponent<SpriteRenderer>().sprite = ItemData.Items[output].icon;
+                }
+
+
+            }
+            item.OnClick();
+            if (ItemData.Items[item.ItemID].type == 2)
+            {
+                Destroy(item.gameObject);
             }
 
-            Destroy(item.gameObject);
 
         }
-        else
-        {
-            BackpackManager.Instance.NotUse();
-            MouseInputManager.Instance.ChooseItem = 0;
-        }
-
     }
 }

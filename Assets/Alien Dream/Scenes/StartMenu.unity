@@ -669,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 640392438356154815, guid: 63a41e40081f81f45adf7c69fa1cdfa7, type: 3}
       propertyPath: Scene.Array.data[2]
-      value: ChoseLevel
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a41e40081f81f45adf7c69fa1cdfa7, type: 3}

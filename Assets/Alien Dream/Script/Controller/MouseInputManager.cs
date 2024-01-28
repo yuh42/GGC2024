@@ -10,6 +10,8 @@ public class MouseInputManager : MonoSingleton<MouseInputManager>
     public event Action<Item> OnLeftButtonDown;
     public event Action<Item> OnLeftButtonUp;
 
+    public Texture2D CursorIcon;
+
     public Vector2 WorldMousePos;
     public Vector2 ScreenMousePos;
 
@@ -23,7 +25,7 @@ public class MouseInputManager : MonoSingleton<MouseInputManager>
     // Start is called before the first frame update
     void Start()
     {
-
+        Cursor.SetCursor(CursorIcon, new Vector2(), CursorMode.Auto);
     }
 
     // Update is called once per frame
@@ -68,6 +70,10 @@ public class MouseInputManager : MonoSingleton<MouseInputManager>
         if (Input.GetMouseButtonUp(0))
         {
             OnLeftButtonUp?.Invoke(hit.collider == null ? null : hit.transform.GetComponent<Item>());
+            if (MouseInputManager.Instance.ChooseItem != 0)
+            {
+                BackpackManager.Instance.StopUse();
+            }
             MouseInputManager.Instance.ChooseItem = 0;
         }
 

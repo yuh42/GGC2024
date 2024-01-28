@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class BackpackManager : MonoSingleton<BackpackManager>
 {
     // Start is called before the first frame update
     public Transform[] Buttons = new Transform[9];
+    public Transform Choose;
     private int[] storeItems = new int[9];
     private Transform icon;
     private int chooseIndex;
@@ -51,13 +53,17 @@ public class BackpackManager : MonoSingleton<BackpackManager>
 
         chooseIndex = index;
         icon = Buttons[index].GetChild(0);
-        icon.GetComponent<Image>().color = Color.grey;
+        // icon.GetComponent<Image>().color = Color.grey;
+        Choose.position = Buttons[index].position;
+        Choose.gameObject.SetActive(true);
+        Text name = Choose.GetChild(0).GetChild(0).GetComponent<Text>();
+        name.text = ItemsDatabase.Instance.Items[storeItems[index]].name;
         MouseInputManager.Instance.ChooseItem = storeItems[index];
     }
 
-    public void NotUse()
+    public void StopUse()
     {
-        icon.GetComponent<Image>().color = Color.white;
+        Choose.gameObject.SetActive(false);
     }
 
     public void Drop()

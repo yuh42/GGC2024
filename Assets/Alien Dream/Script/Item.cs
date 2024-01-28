@@ -6,9 +6,6 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public int ItemID;
-
-    public Sprite Icon;
-
     public virtual void OnClick(){
 
     }
