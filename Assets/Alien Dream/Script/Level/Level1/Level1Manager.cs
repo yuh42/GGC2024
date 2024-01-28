@@ -9,7 +9,6 @@ public class Level1Manager : MonoSingleton<Level1Manager>
     int EyesCount = 7;
     public event Action OnEyesDestroyEvent;
     public event Action OnFishGetEvent;
-    public Battery Battery;
     // public bool bHappy=false;
     // public bool bStand=false;
     // public bool bNude=false;
@@ -24,8 +23,12 @@ public class Level1Manager : MonoSingleton<Level1Manager>
         return false;
     }
 
+     public void GetFish()
+    {
+        OnFishGetEvent.Invoke();
+    }
     public void OnTargetFinish(){
-        Battery.AddPower();
+        Battery.Instance.AddPower();
     }
 
     public void Back(){

@@ -5,7 +5,7 @@ using UnityEngine.XR;
 
 public class Wolf : MonoBehaviour
 {
-
+    
     public GameObject NomalWolf;
     public GameObject RedWolf;
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ComicPlayer : MonoBehaviour
 {
     public List<Sprite> sprites;
-
+    public bool isEnd;
     Image image_L;
     Image image_R;
 
@@ -52,6 +52,11 @@ public class ComicPlayer : MonoBehaviour
                 yield return null;
             }
         }
-        LevelManager.Instance.Jump(2);
+        if(isEnd){
+            LevelManager.Instance.Exit();
+        }else{
+            LevelManager.Instance.Jump(2);
+        }
+            
     }
 }

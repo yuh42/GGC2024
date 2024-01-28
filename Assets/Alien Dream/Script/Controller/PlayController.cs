@@ -32,10 +32,19 @@ public class PlayController : MonoBehaviour
             BackpackManager.Instance.Add(item.ItemID);
             Destroy(item.gameObject);
         }
-        else if (ItemData.Items[item.ItemID].type == 2)
+        else if (ItemData.Items[item.ItemID].type == 2 || ItemData.Items[item.ItemID].type == 4)
         {
             HandleCombin(item);
         }
+        else if (ItemData.Items[item.ItemID].type == 3)
+        {
+            if (MouseInputManager.Instance.ChooseItem != 0 && ItemData.Items[item.ItemID].input.Contains(MouseInputManager.Instance.ChooseItem))
+            {
+                item.OnClick();
+                BackpackManager.Instance.Drop();
+            }
+        }
+
 
     }
 

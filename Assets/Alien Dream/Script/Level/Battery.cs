@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Battery : MonoSingleton<Battery>
 {
-    int Powers = 0;
+    
+    public int Powers = 0;
     public void AddPower(){
         Powers++;
-        GetComponent<Animator>().Play(Powers);
+        GetComponent<Animator>().SetInteger("Power",Powers);
     }
 }

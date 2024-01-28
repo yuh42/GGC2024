@@ -15,7 +15,10 @@ MonoBehaviour:
   "bgm_\u4E3B\u754C\u9762": {fileID: 8300000, guid: 71942c21f3a9947a6a9ffbefdfaf7229, type: 3}
   "bgm_\u5496\u5561\u9986": {fileID: 8300000, guid: 5a85b9078e88146b3a732cabbc6caa6f, type: 3}
   "bgm_\u5B87\u5B99": {fileID: 8300000, guid: ab7723b5d652944c380a09ea15afc76a, type: 3}
-  "bgm_\u91CE\u5916\u4E1B\u6797": {fileID: 8300000, guid: b2799f4cb72484790ace34ca2658eb82, type: 3}
+  "bgm_\u91CE\u5916\u4E1B\u6797": {fileID: 8300000, guid: 4697b788f052596438e66e60ee454370, type: 3}
+  "bgm_\u6F2B\u753B1": {fileID: 8300000, guid: 20e954507e7f039449e005851b8f2019, type: 3}
+  "bgm_\u6F2B\u753B2": {fileID: 8300000, guid: fcaf614fcf1e61148b51e76f999feaef, type: 3}
+  "bgm_\u6F2B\u753B3": {fileID: 8300000, guid: 35ee942984d1fcb41b5a556d312efae5, type: 3}
   main_effects:
   - {fileID: 8300000, guid: 4a104152fbc054378ae5794752977754, type: 3}
   - {fileID: 8300000, guid: 8c8b09f742fdb466d82a081dd44d1e2e, type: 3}

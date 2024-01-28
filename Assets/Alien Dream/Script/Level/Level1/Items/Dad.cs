@@ -11,7 +11,7 @@ public class Dad : MonoBehaviour
         Level1Manager.Instance.OnFishGetEvent += TaskFinish;
     }
 
-    private void TaskFinish(){
+    public void TaskFinish(){
         targets++;
         if(targets==2){
             GetComponent<Animator>().Play("Happy");

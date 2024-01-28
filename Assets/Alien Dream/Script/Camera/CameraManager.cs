@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -12,11 +11,11 @@ public class CameraManager : MonoBehaviour
     public float MaxDown;
     public float MaxRight;
     public float MaxLeft;
-    
 
-    public Transform FarPanel;
-    public Transform MidPanel;
-    public Transform ClosePanel;
+
+    public Transform[] FarPanel;
+    public Transform[] MidPanel;
+    public Transform[] ClosePanel;
 
     // private float lookAngle;
     // private float tiltAngle;
@@ -42,9 +41,20 @@ public class CameraManager : MonoBehaviour
         mx = Mathf.Clamp(mx, MaxLeft, MaxRight);
         my = Mathf.Clamp(my, MaxDown, MaxUp);
 
-        FarPanel.position = new Vector3(mx * FarRate, my * FarRate, 0);
-        MidPanel.position = new Vector3(mx * MidRate, my * MidRate, 0);
-        ClosePanel.position = new Vector3(mx * CloseRate, my * CloseRate, 0);
+        if (LevelManager.Instance.nowLevel == 1)
+        {
+            FarPanel[0].position = new Vector3(mx * FarRate, my * FarRate, 0);
+            MidPanel[0].position = new Vector3(mx * MidRate, my * MidRate, 0);
+            ClosePanel[0].position = new Vector3(mx * CloseRate, my * CloseRate, 0);
+        }
+
+        else if(LevelManager.Instance.nowLevel == 3)
+
+        {
+            FarPanel[1].position = new Vector3(40f+mx * FarRate, my * FarRate, 0);
+            // MidPanel[1].position = new Vector3(mx * MidRate, my * MidRate, 0);
+            ClosePanel[1].position = new Vector3(40f+mx * CloseRate, my * CloseRate, 0);
+        }
 
         // Debug.Log(mx + " " + my);
 

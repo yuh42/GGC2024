@@ -73,6 +73,7 @@ public class BackpackManager : MonoSingleton<BackpackManager>
         icon.GetComponent<Image>().sprite = null;
         icon.GetComponent<Image>().color = Color.clear;
         MouseInputManager.Instance.ChooseItem = 0;
+        Choose.gameObject.SetActive(false);
     }
 
     public void Drop(int index)
